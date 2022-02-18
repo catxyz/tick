@@ -10,7 +10,7 @@ public class Tick {
 
     public static void main(String[] args) throws AWTException {
         Scanner input = new Scanner(System.in);
-        say("Specify how long I should keep clicking in seconds.");
+        out("Specify how long I should keep clicking in seconds.");
 
         final int time = input.nextInt();
 
@@ -26,7 +26,7 @@ public class Tick {
                 timePassed += 1000;
 
                 if (timePassed >= endTime) {
-                    say("Finished after " + time + " seconds.");
+                    out("Finished after " + time + " seconds.");
                     System.exit(0);
                 }
                 robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
@@ -37,7 +37,7 @@ public class Tick {
         timer.scheduleAtFixedRate(task, 0L, 1000L);
     }
 
-    public static void say(String message) {
+    public static void out(String message) {
         System.out.println(message);
     }
 

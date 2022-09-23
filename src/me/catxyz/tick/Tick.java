@@ -40,5 +40,4 @@ public class Tick {
     public static void out(String message) {
         System.out.println(message);
     }
-
 }

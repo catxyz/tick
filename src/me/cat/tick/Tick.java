@@ -29,9 +29,9 @@ public class Tick {
                     out("Finished after " + time + " seconds.");
                     System.exit(0);
                 }
-                robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+                robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                 robot.delay(20);
-                robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+                robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
             }
         };
         timer.scheduleAtFixedRate(task, 0L, 1000L);

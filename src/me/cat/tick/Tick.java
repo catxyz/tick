@@ -22,6 +22,7 @@ public class Tick {
             @Override
             public void run() {
                 timePassed += 1000;
+                out("timePassed = " + timePassed);
 
                 if (timePassed >= endTime) {
                     out("Finished after " + time + " seconds.");

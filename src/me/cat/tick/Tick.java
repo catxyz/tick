@@ -11,7 +11,7 @@ public class Tick {
 
     public static void main(String[] args) throws AWTException {
         Scanner input = new Scanner(System.in);
-        out("specify the number of seconds to keep clicking ->");
+        out("tell me how long to click for (seconds) ->");
 
         int time;
         try {

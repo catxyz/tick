@@ -2,6 +2,7 @@ package me.cat.tick;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -10,9 +11,15 @@ public class Tick {
 
     public static void main(String[] args) throws AWTException {
         Scanner input = new Scanner(System.in);
-        out("Specify how long I should keep clicking in seconds ->");
+        out("specify the number of seconds to keep clicking ->");
 
-        final int time = input.nextInt();
+        int time;
+        try {
+            time = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.err.println("'time' must be of 'int'");
+            return;
+        }
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
             final Robot robot = new Robot();
@@ -22,10 +29,10 @@ public class Tick {
             @Override
             public void run() {
                 timePassed += 1000;
-                out("timePassed = " + timePassed);
+                out("'timePassed' = %,d", timePassed);
 
                 if (timePassed >= endTime) {
-                    out("Finished after " + time + " seconds!");
+                    out("finished after %,d seconds!", time);
                     System.exit(0);
                 }
                 robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
@@ -35,7 +42,7 @@ public class Tick {
         }, 0L, 1000L);
     }
 
-    public static void out(String message) {
-        System.out.println(message);
+    public static void out(String message, Object... params) {
+        System.out.printf(message + '\n', params);
     }
 }

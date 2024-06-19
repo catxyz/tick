@@ -1,1 +1,1 @@
-## 🧩 (tick) -> a way to automate mouse clicks 
+## 🧩 (tick) -> virtually automate mouse presses 
